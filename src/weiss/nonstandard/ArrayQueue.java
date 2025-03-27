@@ -13,8 +13,8 @@ package weiss.nonstandard;
 // ******************ERRORS********************************
 // getFront or dequeue on empty queue
 
-import weiss.util.Comparator;
 
+import DS.BookComparator;
 
 /**
  * Array-based implementation of the queue.
@@ -169,7 +169,7 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
         return clone;
     }
 
-    public AnyType findMinimum(Comparator<AnyType> cmp)
+    public AnyType findMinimum(BookComparator cmp )
     {
         int temp = front;
         AnyType minimum = theArray[front];

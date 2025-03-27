@@ -6,6 +6,7 @@
 package weiss.nonstandard;
 
 import DS.Book;
+import DS.BookComparator;
 
 /**
  *
@@ -16,16 +17,16 @@ public class TestProgram {
     {
 
         /// Stack operations
-        System.out.println("Stack Operations");
+        //System.out.println("Stack Operations");
         //System.out.println("Array Implementation");
         //testStackArray();
 
 
-        System.out.println("LinkedList Implementation");
-        testStackList();
+        //System.out.println("LinkedList Implementation");
+        //testStackList();
 
 
-//        testQueueArray();
+testQueueArray();
 //        testQueueList();
 //        testLinkedList();
 
@@ -90,6 +91,28 @@ public class TestProgram {
 //        System.out.println("Swap");
 //        myBooks.swap();
 //        myBooks.showElements();
+    }
+    public static void testQueueArray(){
+ArrayQueue<Book> myQueue= new ArrayQueue<Book>(10);
+        Book b1 = new Book("A",1000);
+        Book b2 = new Book("B",9000);
+        Book b3 = new Book("C",8000);
+
+        myQueue.enqueue(b1);
+        myQueue.enqueue(b2);
+        myQueue.enqueue(b3);
+
+        System.out.println("ShowElements");
+        myQueue.showElements();
+        System.out.println("ShowElements in Inverse....");
+        myQueue.showInverse();
+        System.out.println("ShowElements of the clone queue in two ways..");
+        ArrayQueue<Book> myClone=myQueue.clone();
+        myQueue.clone().showElements();
+        myClone.showElements();
+        BookComparator myBookComparator=new BookComparator();
+        Book e = myQueue.findMinimum(myBookComparator);
+
     }
 
 
