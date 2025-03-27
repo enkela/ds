@@ -74,7 +74,7 @@ public class ArrayStack<AnyType> implements Stack<AnyType>
      * Return and remove the most recently inserted item
      * from the stack.
      * @return the most recently inserted item in the stack.
-     * @throws Underflow if the stack is empty.
+     * @throws UnderflowException if the stack is empty.
      */
     public AnyType topAndPop( )
     {
@@ -149,6 +149,7 @@ public class ArrayStack<AnyType> implements Stack<AnyType>
         theArray[topOfStack-1] = theArray[topOfStack];
         theArray[topOfStack] = temp;
     }
+
     private AnyType [ ] theArray;
     private int         topOfStack;
 

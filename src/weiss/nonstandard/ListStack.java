@@ -100,12 +100,28 @@ public class ListStack<AnyType> implements Stack<AnyType> {
             System.out.println("List is empty");
             return;
         }
-        ListNode<AnyType> topOfStacktemp=topOfStack;
-        while (topOfStacktemp!=null){
+        ListNode<AnyType> topOfStacktemp = topOfStack;
+        while (topOfStacktemp != null) {
 
-            System.out.println("element:" +topOfStacktemp.element);
+            System.out.println("element:" + topOfStacktemp.element);
             topOfStacktemp = topOfStacktemp.next;
         }
 
+    }
+
+    public void showInverse() {
+        if (isEmpty()) {
+            System.out.println("List is empty");
+            return;
+        }
+        ListNode<AnyType> topOfStacktemp = topOfStack;
+        ListStack<AnyType> inverseStack = new ListStack<>();
+        while (topOfStacktemp != null) {
+
+            //System.out.println("element:" +topOfStacktemp.element);
+            inverseStack.push(topOfStacktemp.element);
+            topOfStacktemp = topOfStacktemp.next;
+        }
+        inverseStack.showElements();
     }
 }

@@ -17,8 +17,8 @@ public class TestProgram {
 
         /// Stack operations
         System.out.println("Stack Operations");
-        System.out.println("Array Implementation");
-        testStackArray();
+        //System.out.println("Array Implementation");
+        //testStackArray();
 
 
         System.out.println("LinkedList Implementation");
@@ -58,18 +58,19 @@ public class TestProgram {
 //        ArrayStack<Book> cloneBooks = myBooks.Clone();
 //        cloneBooks.showElements();
 //
-//        System.out.println("Swap");
-//        myBooks.swap();
-//        myBooks.showElements();
+        myBooks.showElements();
+        System.out.println("Swap after we have seen th elements");
+        myBooks.swap();
+       myBooks.showElements();
     }
 
 
     public static void testStackList(){
         ListStack<Book> myBooks = new ListStack<Book>();
-        
-        Book b1 = new Book("Karamazov Brothers",1000);
-        Book b2 = new Book("The Idiot",9000);
-        Book b3 = new Book("Crime and Punishment",8000);
+
+        Book b1 = new Book("A",1000);
+        Book b2 = new Book("B",9000);
+        Book b3 = new Book("C",8000);
 
         myBooks.push(b1);
         myBooks.push(b2);
@@ -77,10 +78,10 @@ public class TestProgram {
 
         System.out.println("ShowElements");
         myBooks.showElements();
-        myBooks.showElements();
+        //myBooks.showElements();
 //
-//        System.out.println("Showinverse");
-//        myBooks.showInverse();
+        System.out.println("Showinverse");
+        myBooks.showInverse();
 //
 //        System.out.println("Clone");
 //        ListStack<Book> cloneBooks = myBooks.Clone();
