@@ -159,47 +159,6 @@ public class LinkedList<AnyType> {
         }
     }
 
-    public LinkedList<AnyType> clone() {
-        LinkedList<AnyType> clone = new LinkedList<AnyType>();
-        LinkedListIterator<AnyType> itr = this.first();
-        LinkedListIterator<AnyType> cloneitr = clone.zeroth();
-
-        while (itr.current.next != null) {
-            clone.insert(itr.current.element, cloneitr);
-            itr.advance();
-            cloneitr.advance();
-        }
-        return clone;
-    }
-
-    public AnyType findMinimum(Comparator<AnyType> cmp) {
-        LinkedListIterator<AnyType> itr = first();
-        AnyType minimum = itr.current.element;
-        while (itr.current.next != null) {
-            if (cmp.compare(itr.current.next.element, minimum) < 0) {
-                minimum = itr.current.next.element;
-                itr.advance();
-            }
-        }
-
-        return minimum;
-
-    }
-
-    // Simple print method
-    public static <AnyType> void printList(LinkedList<AnyType> theList) {
-        if (theList.isEmpty()) {
-            System.out.print("Empty list");
-        } else {
-            LinkedListIterator<AnyType> itr = theList.first();
-            for (; itr.isValid(); itr.advance()) {
-                System.out.print(itr.retrieve() + " ");
-            }
-        }
-
-        System.out.println();
-    }
-
     private ListNode<AnyType> header;
 
     // In this routine, LinkedList and LinkedListIterator are the
@@ -221,11 +180,11 @@ public class LinkedList<AnyType> {
         int i;
 
         theItr = theList.zeroth();
-        printList(theList);
+        //printList(theList);
 
         for (i = 0; i < 10; i++) {
             theList.insert(i, theItr);
-            printList(theList);
+          //  printList(theList);
             theItr.advance();
         }
         System.out.println("Size was: " + listSize(theList));
@@ -241,29 +200,10 @@ public class LinkedList<AnyType> {
         }
 
         System.out.println("Finished deletions");
-        printList(theList);
+        //printList(theList);
 
     }
 
-    public void printListInverse() {
 
-        ListNode<AnyType> previousPosition;
-        ListNode<AnyType> currentPosition;
-        ListNode<AnyType> nextPosition;
-
-        currentPosition = header.next;
-        nextPosition = currentPosition.next;
-        previousPosition = null;
-        
-        while (nextPosition!=null){
-        currentPosition.next=previousPosition;
-        previousPosition=currentPosition;
-        currentPosition=nextPosition;
-        nextPosition=nextPosition.next;
-         }
-        
-        currentPosition.next=previousPosition;
-        header.next=currentPosition;
-    }
 
 }
