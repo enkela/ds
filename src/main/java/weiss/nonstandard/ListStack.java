@@ -95,36 +95,60 @@ public class ListStack<AnyType> implements Stack<AnyType> {
     }
 
     private ListNode<AnyType> topOfStack;
-    //Lab Excercises 2
-
+    /**
+     * Added the Exercise on Lab1
+     * Modified By E.Hazizi
+     * @
+     * @
+     */
     public void showElements() {
-        if(isEmpty())
-        {
-            System.out.println("STACK IS EMPTY");
-            return;
+        ListNode<AnyType> temp = new ListNode<AnyType>(null,null);
+        temp = topOfStack;
+        while(!(temp==null)) {
+            AnyType el = temp.element;
+            System.out.println(el.toString());
+            temp = temp.next;
         }
-        ListNode<AnyType> topOfStackTemp= topOfStack;
-        while ( topOfStackTemp != null)
-        {    System.out.println( topOfStackTemp.element.toString());
-        topOfStackTemp=topOfStackTemp.next;
-        
+        temp = null;
     }
-}
 
-public void showInverse() {
-     if(isEmpty())
-        {
-            System.out.println("STACK IS EMPTY");
-            return;
+   public void showInverse(){
+        ListNode<AnyType> temp = new ListNode<AnyType>(null,null);
+        temp = topOfStack;
+        ListStack<AnyType> inverse = new ListStack<AnyType>();
+        while(!(temp==null)){
+            AnyType elem = temp.element;
+            inverse.push(elem);
+            temp = temp.next;
         }
-     ListStack<AnyType> myStack= new ListStack<>();
-        ListNode<AnyType> topOfStackTemp= topOfStack;
-        while ( topOfStackTemp != null)
-        {    myStack.push(topOfStackTemp.element);
-        topOfStackTemp=topOfStackTemp.next;
-        
+        inverse.showElements();
+        temp = null;
     }
-       myStack.showElements();
 
+    public ListStack<AnyType> Clone(){
+        ListNode<AnyType> temp = new ListNode<AnyType>(null,null);
+        temp = topOfStack;
+        ListStack<AnyType> tempClone = new ListStack<AnyType>();
+        while(!(temp==null)){
+            AnyType elem = temp.element;
+            tempClone.push(elem);
+            temp = temp.next;
+        }
+
+        ListNode<AnyType> cloneTopofStack = new ListNode<AnyType>(null,null);
+        cloneTopofStack = tempClone.topOfStack;
+        ListStack<AnyType> clone = new ListStack<AnyType>();
+        while(!(cloneTopofStack==null)){
+            AnyType elem = cloneTopofStack.element;
+            clone.push(elem);
+            cloneTopofStack = cloneTopofStack.next;
+        }
+        return clone;
+    }
+
+    public void swap(){
+        AnyType temp = topOfStack.element;
+        topOfStack.element = topOfStack.next.element;
+        topOfStack.next.element = temp;
     }
 }
