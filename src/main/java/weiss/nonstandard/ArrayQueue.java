@@ -126,4 +126,28 @@ public class ArrayQueue<AnyType> implements Queue<AnyType>
     private int         back;
 
     private static final int DEFAULT_CAPACITY = 10;
+        public void showElements() {
+        int temp = front;
+        for (int i = 0; i < currentSize; i++, front = increment(front)) {
+            System.out.println(theArray[front].toString());
+        }
+        front = temp;
+    }
+
+    public void showInverse() {
+        int temp = back;
+        for (int i = currentSize; i > 0; i--, back = decrement(back)) {
+            System.out.println(theArray[back].toString());
+        }
+        back = temp;
+    }
+
+    private int decrement(int x) {
+        if (x == 0) {
+            x = theArray.length - 1;
+        } else {
+            x--;
+        }
+        return x;
+    }
 }
