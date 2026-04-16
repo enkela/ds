@@ -17,11 +17,13 @@ public class TestProgram {
     public static void main(String[] args) {
 
         /// Stack operations
-        System.out.println("Stack Operations");
-        System.out.println("Array Implementation");
-        testStackArray();
-        System.out.println("List Implementation");
-        testStackList();
+//        System.out.println("Stack Operations");
+//        System.out.println("Array Implementation");
+//        testStackArray();
+//        System.out.println("Stack Implementation");
+//        testStackList();
+        System.out.println("Linked List Implementation");
+        testLinkedList();
     }
 
     public static void testStackArray() {
@@ -65,6 +67,34 @@ public class TestProgram {
 
 
 //
+    }
+
+    private static void testLinkedList() {
+    LinkedList<Book> myBooksList = new LinkedList<Book>();
+    LinkedListIterator<Book> itr=myBooksList.zeroth();
+
+        Book b1 = new Book("A", 1000);
+        Book b2 = new Book("B", 9000);
+        Book b3 = new Book("C", 8000);
+        Book b4 = new Book("D", 7000);
+     
+        myBooksList.insert(b1,itr);
+        itr.advance();
+        myBooksList.insert(b2,itr);
+        itr.advance();
+        myBooksList.insert(b3,itr);
+        itr.advance();
+        myBooksList.insert(b4,itr);
+        itr.advance();
+        myBooksList.insert(b2,itr);
+        itr.advance();
+        myBooksList.insert(b4,itr);
+        itr.advance();
+        
+        System.out.println("ShowElements");
+        LinkedList.printList(myBooksList);
+        
+        
     }
 
   
