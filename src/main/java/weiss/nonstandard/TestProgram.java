@@ -20,7 +20,8 @@ public class TestProgram {
         System.out.println("Stack Operations");
         System.out.println("Array Implementation");
         testStackArray();
- 
+        System.out.println("List Implementation");
+        testStackList();
     }
 
     public static void testStackArray() {
@@ -38,7 +39,29 @@ public class TestProgram {
 
         System.out.println("ShowElements");
         myBooks.showElements();
-        
+        System.out.println("ShowElements in inverse");
+        myBooks.showInverse();
+
+
+//
+    }
+      public static void testStackList() {
+        ListStack<Book> myBooksList = new ListStack<Book>();
+
+        Book b1 = new Book("A", 1000);
+        Book b2 = new Book("B", 9000);
+        Book b3 = new Book("C", 8000);
+        Book b4 = new Book("D", 7000);
+
+        myBooksList.push(b1);
+        myBooksList.push(b2);
+        myBooksList.push(b3);
+        myBooksList.push(b4);
+
+        System.out.println("ShowElements");
+        myBooksList.showElements();
+        System.out.println("ShowElements in inverse");
+        myBooksList.showInverse();
 
 
 //
