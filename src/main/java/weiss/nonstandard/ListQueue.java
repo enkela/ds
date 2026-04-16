@@ -88,4 +88,57 @@ public class ListQueue<AnyType> implements Queue<AnyType>
 
     private ListNode<AnyType> front;
     private ListNode<AnyType> back;
+    
+    
+// Lab 2 Lecture 2
+    public void showElements() {
+        ListNode<AnyType> temp = front;
+        while (front != null) {
+            System.out.println("print elemnt of Queue list: " + front.element);
+            front = front.next;
+        }
+        front = temp;
+
+    }
+
+    public void showInverseWithStack() {
+
+        ListQueue<AnyType> clone = this.clone();
+        ListNode<AnyType> cloneFront = clone.front;
+
+        ListStack<AnyType> stack = new ListStack<AnyType>();
+
+        while (cloneFront != null) {
+            stack.push(cloneFront.element);
+            cloneFront = cloneFront.next;
+        }
+
+        stack.showElements();
+        clone = null;
+    }
+
+    public ListQueue<AnyType> clone() {
+        ListQueue<AnyType> clone = new ListQueue<AnyType>();
+        ListNode<AnyType> ownFront = front;
+        while (front != null) {
+            clone.enqueue(front.element);
+            front = front.next;
+        }
+        front = ownFront;
+        return clone;
+    }
+
+    public AnyType findMinimum(java.util.Comparator<AnyType> cmp) {
+        ListNode<AnyType> ownFront = front;
+        AnyType minimum = front.element;
+        while (front != null) {
+            //System.out.println(front.element);
+            if (cmp.compare(front.element, minimum) < 0) {
+                minimum = front.element;
+            }
+            front = front.next;
+        }
+        front = ownFront;
+        return minimum;
+    }
 }
