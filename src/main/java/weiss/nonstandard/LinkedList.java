@@ -138,10 +138,10 @@ public class LinkedList<AnyType>
         {
             LinkedListIterator<AnyType> itr = theList.first( );
             for( ; itr.isValid( ); itr.advance( ) )
-                System.out.print( itr.retrieve( ) + " " );
+                System.out.println( itr.current.element + " " );
         }
 
-        System.out.println( );
+        System.out.println("List Printed ");
     }
 
     private ListNode<AnyType> header;
@@ -186,7 +186,7 @@ public class LinkedList<AnyType>
         System.out.println( "Finished deletions" );
         printList( theList );
     }
-//Lab excercises
+//Lab excercises Lecture3
     
     /**
      * Return iterator corresponding to the first node containing an item.
@@ -233,7 +233,7 @@ public class LinkedList<AnyType>
             if (p.current.element.equals(x)) {
                 previous.current.next = previous.current.next.next;  // Bypass deleted node
             }
-            //System.out.println(previous.current.element);
+            System.out.println(previous.current.element);
             p.advance();
             previous.advance();
         }
@@ -251,6 +251,14 @@ public class LinkedList<AnyType>
             itr.advance();
         }
         return minimum;
+    }
+
+    void showElements() {
+        
+    }
+
+    void showInverse() {
+      //
     }
 
 }
