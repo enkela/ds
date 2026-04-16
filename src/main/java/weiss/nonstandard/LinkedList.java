@@ -1,6 +1,9 @@
 package weiss.nonstandard;
 
 // LinkedList class
+
+import weiss.util.Comparator;
+
 //
 // CONSTRUCTION: with no initializer
 // Access is via LinkedListIterator class
@@ -182,6 +185,72 @@ public class LinkedList<AnyType>
 
         System.out.println( "Finished deletions" );
         printList( theList );
+    }
+//Lab excercises
+    
+    /**
+     * Return iterator corresponding to the first node containing an item.
+     *
+     * @param x the item to search for.
+     * @return an iterator; iterator is not valid if item is not found.
+     */
+    public LinkedListIterator<AnyType> findLast(AnyType x) {
+        ListNode<AnyType> itr = header.next;
+        ListNode<AnyType> lastItr = new ListNode<AnyType>(x);
+        //int counter = 0;
+        //int pos = 0;
+        while (itr != null) {
+            if (itr.element.equals(x)) {
+                lastItr = itr;
+                //  pos = counter;
+            }
+            //counter++;
+            itr = itr.next;
+        }
+
+        return new LinkedListIterator<AnyType>(itr);
+    }
+    //Clone method
+    public LinkedList<AnyType> clone() {
+        LinkedList<AnyType> clone = new LinkedList<AnyType>();
+        LinkedListIterator<AnyType> itr = this.first();
+        LinkedListIterator<AnyType> cloneitr = clone.zeroth();
+        if (!this.isEmpty()) {
+            while (itr.current.next != null) {
+                clone.insert(itr.current.element, cloneitr);
+                itr.advance();
+                cloneitr.advance();
+            }
+            clone.insert(itr.current.element, cloneitr);
+        }
+        return clone;
+    }
+
+    public void removeAll(AnyType x) {
+        LinkedListIterator<AnyType> p = first();
+        LinkedListIterator<AnyType> previous = zeroth();
+        while (p.current.next != null) {
+            if (p.current.element.equals(x)) {
+                previous.current.next = previous.current.next.next;  // Bypass deleted node
+            }
+            //System.out.println(previous.current.element);
+            p.advance();
+            previous.advance();
+        }
+
+    }
+
+    public AnyType findMinimum(Comparator<AnyType> cmp) {
+        LinkedListIterator<AnyType> itr = first();
+        AnyType minimum = itr.current.element;
+        while (itr.current.next != null) {
+            //System.out.println(front.element);
+            if (cmp.compare(itr.current.next.element, minimum) < 0) {
+                minimum = itr.current.next.element;
+            }
+            itr.advance();
+        }
+        return minimum;
     }
 
 }
