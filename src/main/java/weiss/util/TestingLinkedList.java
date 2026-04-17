@@ -1,14 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ *
+ * Testing class for Linked List 
  */
 package weiss.util;
 
 import DS.Book;
+import DS.BookComparator;
 
 /**
  *
- * @author enkel
+ * @author eHazizi
  */
 public class TestingLinkedList {
     
@@ -33,21 +34,26 @@ public class TestingLinkedList {
         myBooks.addFirst(b2);
         myBooks.addFirst(b1);
         System.out.println("Show Elements of linked list");
-
-//        System.out.println("Show Elements of linked list after substitute two elemnts of the list");
-//        System.out.println("----------------------------------------------------");
-//        myBooks.substitute(b1, b4, new BookComparator<Book>());
         myBooks.printList();
-//        System.out.println("----------------------------------------------------");
-//        System.out.println("Show Elements of linked list in Inverse Order");
-//        myBooks.showInverseList();
+        //Find elemnts by using binary search
+        System.out.println(myBooks.binarySearch(b2, new BookComparator<>()));
+        System.out.println(myBooks.binarySearchAnyType(b2, new BookComparator<>()));
         myBooks.add(b5);
         myBooks.add(b6);
         myBooks.add(b7);
         myBooks.add(b8);
+         myBooks.printList();
+        System.out.println("Show Elements of linked list");
+        System.out.println("Remove duplicates");
+         myBooks.removeDublicates(new BookComparator<>());
+        myBooks.printList();
         
         System.out.println("----------------------------------------------------");
-       // myBooks.moveLargerAtTheFrontUKPERAJ(b7, new BookComparator<Book>());
-      // myBooks.swap(1,2);
+        System.out.println(myBooks.binarySearch(b2, new BookComparator<>()));
+        System.out.println(myBooks.binarySearchAnyType(b7, new BookComparator<>()));
+        System.out.println("******Move B5 element at front******** ");
+        myBooks.moveAtTheFront(b5, new BookComparator<>());
+     
+        myBooks.printList();
     }
 }
