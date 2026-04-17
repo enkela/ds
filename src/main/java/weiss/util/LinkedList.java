@@ -457,7 +457,25 @@ public class LinkedList<AnyType> extends AbstractCollection<AnyType> implements 
         }
         return true;
     }
+    public AnyType binarySearchAnyType(AnyType x, Comparator<AnyType> cmp) {
+        int low = 0;
+        int mid = 0;
+        int high = theSize ;
 
+        while (low < high) {
+            mid = (low + high) / 2;
+            if (cmp.compare(x, getNode(mid).data) > 0) {
+                low = mid + 1;
+            } else {
+                high = mid;
+            }
+        }
+
+        if (low == theSize  || cmp.compare(x, getNode(low).data) != 0) {
+            return null;
+        }
+        return getNode(low).data;
+    }
     //remove dublicate elements
     public void removeDublicates(Comparator<AnyType> cmp) {
         Node<AnyType> currentPosition = beginMarker.next;
@@ -493,5 +511,27 @@ public class LinkedList<AnyType> extends AbstractCollection<AnyType> implements 
             }
         }
     }
+//Excercises on Lesson 5
+    public void substitute(AnyType x, AnyType y, Comparator<AnyType> cmp) {
+        for (int i = 0; i < this.theSize; i++) {
+            Node<AnyType> p = getNode(i);
+            if (cmp.compare(p.data, x) == 0) {
+                p.data = y;
+            }
+        }
+    }
 
+    public void remove(int idx, int idx2) {
+        for (int i = idx; i <= idx2; i++) {
+            remove(idx);
+        }
+    }
+
+    public void swap(int index1, int index2) {
+        AnyType d1 = getNode(index1).data;
+        AnyType d2 = getNode(index2).data;
+        this.set(index1, d2);
+        this.set(index2, d1);
+
+    }
 }
