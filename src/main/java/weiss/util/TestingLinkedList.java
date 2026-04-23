@@ -45,11 +45,11 @@ public class TestingLinkedList {
          myBooks.printList();
         System.out.println("Show Elements of linked list");
         System.out.println("Remove duplicates");
-         myBooks.removeDublicates(new BookComparator<>());
+        myBooks.removeDublicates(new BookComparator<>());
         myBooks.printList();
         
         System.out.println("----------------------------------------------------");
-        System.out.println(myBooks.binarySearch(b2, new BookComparator<>()));
+        System.out.println(myBooks.binarySearch(b7, new BookComparator<>()));
         System.out.println(myBooks.binarySearchAnyType(b7, new BookComparator<>()));
         System.out.println("******Move B5 element at front******** ");
         myBooks.moveAtTheFront(b5, new BookComparator<>());
