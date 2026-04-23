@@ -534,4 +534,29 @@ public class LinkedList<AnyType> extends AbstractCollection<AnyType> implements 
         this.set(index2, d1);
 
     }
+      /**
+     * @param x the item to search for.
+     * @param cmp the comparator to use.
+     * @param midValue the value representing the middle of the sorted range.
+     * @return the item if found, null otherwise.
+     */
+    public AnyType efficientSearch(AnyType x, Comparator<? super AnyType> cmp, AnyType midValue) {
+        Node<AnyType> p;
+        if (cmp.compare(x, midValue) > 0) {
+            // Search from tail backwards
+            for (p = endMarker.prev; p != beginMarker; p = p.prev) {
+                int res = cmp.compare(x, p.data);
+                if (res == 0) return p.data;
+                if (res > 0) break; // Since it's sorted, we won't find it further back
+            }
+        } else {
+            // Search from head forwards
+            for (p = beginMarker.next; p != endMarker; p = p.next) {
+                int res = cmp.compare(x, p.data);
+                if (res == 0) return p.data;
+                if (res < 0) break; // Since it's sorted, we won't find it further forward
+            }
+        }
+        return null;
+    }
 }
